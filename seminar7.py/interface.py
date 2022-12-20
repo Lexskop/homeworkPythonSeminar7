@@ -3,6 +3,7 @@ from import_export import read_data
 from search_data import search_data
 from controller import*
 from function import print_data
+import csv
 
 # Часть для ввода команд
 
@@ -37,7 +38,23 @@ def select_operation():
                 else:
                     print("Данные не обнаружены")
         elif menu_selection == '4':    
-            # data = add_data()
+            word = input("Введите фамилию для удаления: ")
+            print("Фамилия".center(15), "Имя".center(15), "Отчество".center(15), "Дата рождения".center(15), "Телефон".center(15), "Комментарий".center(20), "Дата и Время внесения".center(20))
+            print("-"*125)
+            word = word.upper()
+            data = read_data()
+            for item in search_data(word, data):
+                if item != None:
+                    print(item[0].center(15), item[1].center(15), item[2].center(15), item[3].center(15), item[4].center(15), item[5].center(20), item[6].center(20))
+                else:
+                    print("Данные не обнаружены")
+            choice_delete = input('Вы уверены что хотите его удалить? Y - да, N - нет -> ')
+            if choice_delete.upper() == 'Y':
+                with open('seminar7.py\phone.csv', 'r',encoding="utf8") as inp, open('seminar7.py\phone_edit.csv', 'w',encoding="utf8") as out:
+                    writer = csv.writer(out)
+                    for row in csv.reader(inp):
+                        if row[0] != word:
+                            writer.writerow(row)
             a=1
         elif menu_selection == '5':
             # data = add_data()

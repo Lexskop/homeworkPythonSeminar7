@@ -11,9 +11,9 @@ def input_data():
     first_name = correct_input("Введите имя: ")
     middle_name = correct_input("Введите отчество: ")
 
-    brith_name = correct_age("Введите год рождения (пример 1950): ")
+    brith_name = input('Введите дату рождения (dd.mm.yyyy): ')
     phone_number = correct_number("Введите телефонный номер (пример: +74959465735): ")
     note = input("Введите комментарий: ")
     today = dt.now().strftime('%d.%m.%Y - %H:%M')
     return [last_name, first_name, middle_name, brith_name, phone_number, note, today]
-
+    

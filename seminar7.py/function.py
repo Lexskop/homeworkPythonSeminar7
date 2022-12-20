@@ -1,4 +1,5 @@
 # Часть проверки ввода данных, и вывода данных (требуют доработок)
+import datetime
 
 def print_data(data):
     if len(data) > 0:
@@ -32,7 +33,7 @@ def correct_number(text):
 def correct_age(text):
     age = input(f'{text} > ')
     while True:
-        if age.isdigit() and len(age) == 4:
+        if len(age) == 10:
             return age
         print('введите правильный год')
         age = input(f'{text} > ')
