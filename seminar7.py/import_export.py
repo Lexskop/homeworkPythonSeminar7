@@ -4,7 +4,7 @@ from datetime import datetime as dt # пока нет!!!
 # Часть для ввода и экспорта данных
  
 def write_data(data, sep=None):
-    with open('phone.csv', 'a+', encoding='utf-8') as file:
+    with open('seminar7.py\phone.csv', 'a+', encoding='utf-8') as file:
         if sep == None:
             for i in data:
                 file.write(f"{i}\n")
@@ -14,7 +14,7 @@ def write_data(data, sep=None):
             file.write(f"\n")
 
 def read_data():
-    with open('phone.csv', 'r', encoding='utf-8') as file:
+    with open('seminar7.py\phone.csv', 'r', encoding='utf-8') as file:
         data = []
         t = []
         for line in file:
